@@ -18,11 +18,11 @@ https://dph.georgia.gov/covid-19-daily-status-report
 
 ***Visualization Inspirations:***
 
-[Multi-View Display](images/image1.png)
+[Multi-View Display](Images/image1.png)
 
-[Stacked Pyramid](images/image2.png)
+[Stacked Pyramid](Images/image2.png)
 
-[Waterfall Chart](images/image3.png)
+[Waterfall Chart](Images/image3.png)
 
 
 
