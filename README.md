@@ -26,7 +26,7 @@ Stacked Pyramid
 
 ![Stacked Pyramid](Images/image2.png)
 
-WSaterfall Chart
+Waterfall Chart
 
 ![Waterfall Chart](Images/image3.png)
 
