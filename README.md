@@ -18,14 +18,17 @@ https://dph.georgia.gov/covid-19-daily-status-report
 
 ***Visualization Inspirations:***
 
-https://github.com/ishanku/COVID/blob/master/Images/Multi-View%20Display.png?raw=true
+Multi-View Diaplay
 
-[Multi-View Display](images/Multi-View Display.png)
+![Multi-View Display](Images/image1.png)
 
-[Stacked Pyramid](images/Stacked Pyramid.png)
+Stacked Pyramid
 
-[Waterfall Chart](images/Waterfall Chart.png)
+![Stacked Pyramid](Images/image2.png)
 
+Waterfall Chart
+
+![Waterfall Chart](Images/image3.png)
 
 
 ***Analysis:***
