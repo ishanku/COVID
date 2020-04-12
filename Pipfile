@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 gunicorn = "==20.0.4"
 flask-heroku = "*"
+google-cloud = "*"
 
 [requires]
 python_version = "3.7"
