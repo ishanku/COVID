@@ -11,5 +11,9 @@ def hello():
 def hello_name(name):
     return "Hello {}!".format(name)
 
+@app.route('/sql')
+def sql_name(name):
+    return "I am using cloud sql"
+
 if __name__ == '__main__':
     app.run()
