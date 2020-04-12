@@ -12,7 +12,7 @@ def hello_name(name):
     return "Hello {}!".format(name)
 
 @app.route('/sql')
-def sql_name(name):
+def sqlname():
     return "I am using cloud sql"
 
 if __name__ == '__main__':
