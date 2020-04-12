@@ -10,6 +10,11 @@ flask = "*"
 gunicorn = "==20.0.4"
 flask-heroku = "*"
 google-cloud = "*"
+google = "*"
+google-cloud-vision = "*"
+google-cloud-bigquery = "*"
+conda = "*"
+google-cloud-storage = "*"
 
 [requires]
 python_version = "3.7"
