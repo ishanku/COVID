@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Leaflet Step-1</title>
+  <title>Our Little Covid Helper</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
@@ -13,10 +16,27 @@
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-"Hi"
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
+        <a class="navbar-brand" href="index.html">Global View</a>
+     
+     <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav">
+           <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 1</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 2</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 3</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 4</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">CDC Guidelines</a></li>
+         </ul>
+     </div>
+     </div>
+     </nav>
+     
   <!-- The div that holds our map -->
+  <div class="container-fluid">
+    <div class="jumbotron>Covid Analysis</div>
   <div id="map"></div>
-
+ </div>
   <!-- Leaflet JavaScript -->
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
   <!-- D3 JavaScript -->
