@@ -6,16 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-beautifulsoup4 = "==4.9.0"
-click = "==7.1.1"
-flask-heroku = "==0.1.9"
-gunicorn = "==20.0.4"
-itsdangerous = "==1.1.0"
-soupsieve = "==2.0"
-Flask = "==1.1.2"
-Jinja2 = "==2.11.1"
-MarkupSafe = "==1.1.1"
-Werkzeug = "==1.0.1"
+psycopg2-binary = "*"
+sqlalchemy = "*"
+flask = "*"
+pandas = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
