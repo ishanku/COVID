@@ -14,7 +14,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-var data_url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+//var data_url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+//var data_url="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
 
 function markerSize(mag) {
   var rmag=mag*2;
@@ -34,39 +35,38 @@ function colorchoice(mag){
     color="yellow"
   else if (mag>1)
     color="yellowgreen"
-  else 
+  else
     color = color;
 
   return color;
 }
 
-
-
 d3.json(data_url, function(response) {
 
 console.log(response);
+d3.select('body').append('h1').text("Welcome to Covid")
   // Loop through data
-  for (var i = 0; i < response.features.length; i++) {
+  // for (var i = 0; i < response.features.length; i++) {
 
-    // Set the data location property to a variable
-    var location = response.features[i].geometry;
-    var property = response.features[i].properties;
-    // Check for location property
-    if (location) {
-     
+  //   // Set the data location property to a variable
+  //   var location = response.features[i].geometry;
+  //   var property = response.features[i].properties;
+  //   // Check for location property
+  //   if (location) {
 
-    L.circleMarker([location.coordinates[1],location.coordinates[0]], {
-      fillOpacity: 1,
-      color: colorchoice(property.mag),
-      fillColor: colorchoice(property.mag),
-      // Setting our circle's radius equal to the output of our markerSize function
-      // This will make our marker's size proportionate to its population
-      radius: markerSize(property.mag)
-    }).bindPopup("<h3>" + property.place + "</h3><hr><p>" + new Date(property.time) + "</p><hr><p>Magnitude: " + property.mag + "</p>").addTo(myMap);
-  }
 
-  }
+  //   L.circleMarker([location.coordinates[1],location.coordinates[0]], {
+  //     fillOpacity: 1,
+  //     color: colorchoice(property.mag),
+  //     fillColor: colorchoice(property.mag),
+  //     // Setting our circle's radius equal to the output of our markerSize function
+  //     // This will make our marker's size proportionate to its population
+  //     radius: markerSize(property.mag)
+  //   }).bindPopup("<h3>" + property.place + "</h3><hr><p>" + new Date(property.time) + "</p><hr><p>Magnitude: " + property.mag + "</p>").addTo(myMap);
+  // }
 
- 
+  // }
+
+
 
 });
