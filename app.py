@@ -9,8 +9,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    sqldata()
+    #sqldata()
     coviddata()
+    covidall()
     return render_template("index.html")
 
 @app.route('/data_country')
@@ -25,6 +26,19 @@ def coviddata():
     response = requests.get(url).json()
     data_c19=json.dumps(response, indent=4, sort_keys=True)
     return data_c19
+
+
+@app.route('/covidall')
+def covidall():
+    url="https://covid-19-tracking.p.rapidapi.com/v1";
+    headers = {
+    #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",
+    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    }
+    response = requests.request("GET", url, headers=headers).json()
+    #response = requests.get(url).json()
+    covidall=json.dumps(response, indent=4, sort_keys=True)
+    return covidall
 
 @app.route('/data_fullC19')
 def fullC19():
