@@ -33,7 +33,7 @@
   <!-- The div that holds our map -->
   <div class="container-fluid">
   <div class="row nogutters">
-  <div class="col-2 justify-content-start bar-1">Left</div>
+  <div id="numberbar" class="col-2 justify-content-start bar-1"></div>
   <div id="worldmap" class="col-8 justify-content-center bar-2"></div>
   <div class="col-2 justify-content-end bar-3">Right</div>
   </div>
@@ -41,6 +41,7 @@
   <script type="text/javascript" src="static/js/lib/pym.v1.js"></script>
   <script>
       var pymParent = new pym.Parent('worldmap', 'worldmap', {});
+      var another = new pym.Parent('numberbar', 'covidnumbers', {});
   </script>
    </body>
   </html>
