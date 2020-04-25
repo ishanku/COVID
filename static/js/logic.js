@@ -67,18 +67,18 @@ function ChooseColor(value,population,key){
   return color;
 }
 
-function renderAll(c19data,countrydata,covidall){
+function renderAll(c19data,countrydata,covid19){
 d3.json(c19data, function(response) {
-  console.log("welcome again")
-  console.log(response);
+  // console.log("welcome again")
+  // console.log(response);
   let CovidData=response.records;
-  console.log(CovidData);
+  //console.log(CovidData);
   let currentCountry=CovidData[0].countriesAndTerritories;
-  d3.json(covidall,(data)=>{
+  d3.json(covid19,(data)=>{
     console.log(data);
   })
   d3.json(countrydata, function(cdata) {
-    console.log(cdata);
+    //console.log(cdata);
     let GeoCoordinates=cdata;
 
     buildLayers(currentCountry,CovidData,GeoCoordinates);

@@ -25,7 +25,7 @@ html {
 
   > .col,
   > [class*="col-"] {
-    padding-right: 0;
+    padding-right: 5px;
     padding-left: 0;
   }
 }

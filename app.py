@@ -18,6 +18,10 @@ def home():
 def worldmap():
     return render_template("worldmap.html")
 
+@app.route("/covidnumbers")
+def covidnumbers():
+    return render_template("covidnumbers.html")
+
 @app.route('/data_country')
 def sqldata():
     tables="country"
@@ -32,7 +36,7 @@ def coviddata():
     return data_c19
 
 
-@app.route('/covidall')
+@app.route('/covid19')
 def covidall():
     url="https://covid-19-tracking.p.rapidapi.com/v1";
     headers = {
@@ -41,8 +45,8 @@ def covidall():
     }
     response = requests.request("GET", url, headers=headers).json()
     #response = requests.get(url).json()
-    covidall=json.dumps(response, indent=4, sort_keys=True)
-    return covidall
+    covid19=json.dumps(response, indent=4, sort_keys=True)
+    return covid19
 
 @app.route('/data_fullC19')
 def fullC19():
