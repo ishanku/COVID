@@ -14,6 +14,10 @@ def home():
     covidall()
     return render_template("index.html")
 
+@app.route("/worldmap")
+def worldmap():
+    return render_template("worldmap.html")
+
 @app.route('/data_country')
 def sqldata():
     tables="country"

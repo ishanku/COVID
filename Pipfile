@@ -12,6 +12,8 @@ pandas = "*"
 sqlalchemy = "*"
 numpy = "*"
 scipy = "*"
+flask-wtf = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"

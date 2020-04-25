@@ -1,4 +1,4 @@
-renderAll(c19data,countrydata,covidall);
+//renderAll(c19data,countrydata,covidall);
 
 function getRadius(radius,population,key){
   var rradius=5;

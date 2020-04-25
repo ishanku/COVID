@@ -5,6 +5,7 @@ var servername="http://localhost:5000/"
 var c19data="static/data/covid.json"
 var countrydata="static/data/country.json"
 var fullc19data=servername + "data_fullC19"
+var covidall=""
 
 var C19LossMarkers=[]
 var C19CaseMarkers=[]
