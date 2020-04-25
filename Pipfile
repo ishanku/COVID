@@ -6,11 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-psycopg2-binary = "*"
-sqlalchemy = "*"
 flask = "*"
+psycopg2-binary = "*"
 pandas = "*"
-requests = "*"
+sqlalchemy = "*"
+numpy = "*"
+scipy = "*"
+flask-wtf = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
