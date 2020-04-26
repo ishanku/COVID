@@ -15,19 +15,24 @@ h3{
 h5{
   color:darkorange;
 }
-.arc text {
-  font: 8px sans-serif;
-  color: #fff;
-  text-anchor: middle;
-}
-.arcs text {
-  font: 8px sans-serif;
-  color: #fff;
-  text-anchor: middle;
+.activecases{
+  padding: 10px;
+  color:turquoise;
+  font-size: small;
+
 }
 
-.arc path {
-  stroke: #fff;
+.losses{
+  padding: 10px;
+  color: red;
+  font-size: small;
+}
+
+
+.recovered{
+  padding: 10px;
+  color: green;
+  font-size: small;
 }
 
 .title {
@@ -48,4 +53,109 @@ h5{
 .custom .leaflet-popup-content-wrapper {
     background: #fff;
     color: #000;
+}
+
+
+/*Marker clusters*/
+.marker-cluster-pie g.arc{
+  fill-opacity: 0.5;
+}
+.marker-cluster-pie-label {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*Markers*/
+.marker {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+  border-radius:10px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-style: solid;
+  fill: #CCC;
+  stroke: #444;
+  background: #CCC;
+  border-color: #444;
+}
+.marker div{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*marker categories*/
+.category-1{
+  fill: #F88;
+  stroke: #800;
+  background: #F88;
+  border-color: #800;
+}
+.category-2{
+  fill: #FA0;
+  stroke: #B60;
+  background: #FA0;
+  border-color: #B60;
+}
+.category-3{
+  fill: #FF3;
+  stroke: #D80;
+  background: #FF3;
+  border-color: #D80;
+}
+.category-4{
+  fill: #BFB;
+  stroke: #070;
+  background: #BFB;
+  border-color: #070;
+}
+.category-5{
+  fill: #9DF;
+  stroke: #007;
+  background: #9DF;
+  border-color: #007;
+}
+.category-6{
+  fill: #CCC;
+  stroke: #444;
+  background: #CCC;
+  border-color: #444;
+}
+
+/*marker icons*/
+.icon-1{
+  background-image: url('running-16.png');
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+}
+.icon-2{
+  background-image: url('bicycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-3{
+  background-image: url('motorcycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-4{
+  background-image: url('car-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+
+/*Popup*/
+.map-popup span.heading {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.map-popup span.attribute {
+  display: block;
+}
+.map-popup span.label {
+  font-weight: bold;
 }

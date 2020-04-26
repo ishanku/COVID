@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+#map,
+body,
+html {
+  height: 900px;
+}
+#map {
+  margin-top: 50px;
+  padding: 10px;
+ 
+}
+h5{
+  color:lightseagreen;
+}
+.darkbg{
+  background-color: #555;
+}
+.lightbg
+{
+  background-color: bisque;
+}
+#legend {
+  line-height: 18px;
+  color: #555;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  z-index: 2;
+  background-color: white;
+  padding: 5px;
+}
+#legend i {
+  width: 50px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.headcol{
+  padding: 10px;
+  color:blue;
+  background-color: antiquewhite;
+  font-size: medium;
+
+}
+.activecases{
+  padding: 10px;
+  color:turquoise;
+  font-size: small;
+
+}
+
+.losses{
+  padding: 10px;
+  color: red;
+  font-size: small;
+}
+
+
+.recovered{
+  padding: 10px;
+  color: green;
+  font-size: small;
+}

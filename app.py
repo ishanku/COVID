@@ -23,6 +23,28 @@ def worldmap():
 def covidnumbers():
     return render_template("covidnumbers.html")
 
+@app.route("/regionalmap/<region>")
+def regionalmap(region):
+    regional(region)
+    return render_template("regionalmap.html",region=region)
+
+@app.route('/regional/<region>')
+def regional(region):
+    url="https://covid19-data.p.rapidapi.com/geojson-"+region;
+    #url="https://covid19-data.p.rapidapi.com/geojson-na"
+    headers = {
+    'x-rapidapi-host': "covid19-data.p.rapidapi.com",
+    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    }
+    response = requests.request("GET", url, headers=headers).json()
+    #response = requests.get(url).json()
+    if response == None or response == '':
+      data="{}"
+      print('I got a null or empty string value for data in a file')
+    else:
+        data=json.dumps(response, indent=4, sort_keys=True)
+    return data
+
 @app.route("/usamap")
 def usamap():
     return render_template("usamap.html")
@@ -51,6 +73,7 @@ def covidall():
     #response = requests.get(url).json()
     covidall=json.dumps(response, indent=4, sort_keys=True)
     return covidall
+
 
 @app.route('/covid19')
 def covid19():
