@@ -10,10 +10,11 @@ d3.json(covid19,function(data){
   data.forEach((element) => {
     var country=element['Country_text'];
     var activecases=element['Active Cases_text']
-    var totalloses=element['Total Deaths_text']
+    var totallosses=element['Total Deaths_text']
     var newcases=element['New Cases_text']
-    var newloses=element['New Deaths_text']
-
+    var newlosses=element['New Deaths_text']
+    var totalcases=element['Total Cases_text'];
+    var recoveredcases=element['Total Recovered_text']
 
 
     var rowdiv=maindiv.append("div")
@@ -41,12 +42,24 @@ d3.json(covid19,function(data){
     .attr("class","row")
 
     lrowdiv.append("div")
-    .attr("class","cols loses")
-    .html("Total Losses <br>"+totalloses)
+    .attr("class","cols losses")
+    .html("Total Losses <br>"+totallosses)
 
     lrowdiv.append("div")
-    .attr("class","cols loses")
-    .html("New Loses<br>"+newloses)
+    .attr("class","cols losses")
+    .html("New Losses<br>"+newlosses)
+
+
+    var trowdiv=rowdiv.append("div")
+          .attr("class","row")
+    
+    trowdiv.append("div")
+    .attr("class","cols activecases")
+    .html("Total Cases <br>"+ totalcases)
+
+    trowdiv.append("div")
+    .attr("class","cols recovered")
+    .html("Recovered Cases<br>"+recoveredcases)
 
      });
 });

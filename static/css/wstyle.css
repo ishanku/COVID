@@ -6,8 +6,34 @@ body {
 body,
 html {
   height: 900px;
+  background-color: black;
+}
+h3{
+  color:lightseagreen;
 }
 
+h5{
+  color:darkorange;
+}
+.arc text {
+  font: 8px sans-serif;
+  color: #fff;
+  text-anchor: middle;
+}
+.arcs text {
+  font: 8px sans-serif;
+  color: #fff;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.title {
+  fill: teal;
+  font-weight: bold;
+}
 .leaflet-bottom.leaflet-left {
   width: 100%;
 }
@@ -17,4 +43,9 @@ html {
   width: 100%;
   margin: 0;
   margin-bottom: 15px;
+}
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #fff;
+    color: #000;
 }

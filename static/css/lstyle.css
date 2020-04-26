@@ -19,11 +19,18 @@ padding: 5px;
   padding: 10px;
   color:lightblue;
   font-size: small;
-    
+
 }
 
-.loses{
+.losses{
   padding: 10px;
   color: red;
+  font-size: small;
+}
+
+
+.recovered{
+  padding: 10px;
+  color: lightgreen;
   font-size: small;
 }
