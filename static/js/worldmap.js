@@ -108,9 +108,6 @@ CovidData.forEach((covidReport) => {
   var cdate=covidReport.date;
   var population=0;
 
-  var svg=d3.select("#mypie").append('circle').attr("cx",50).attr("cy",0).attr("r",20).attr("fill","red");
-  var csvg='<svg height="20" width="20" viewBox="0 0 20 20"><circle r="10" cx="10" cy="10" fill="white" /><circle r="10" cx="10" cy="10" fill="bisque" /></svg>'
-  //var customPopup = "<div id='mypie'></div><h3>" + country + "</h3><h5>" + province + "</h5><hr><p>Date:" + cdate + "</p><hr><p>New Losses: +" + newlosses + "</p><p>Total Losses: +"  + losses + "</p><p>New Cases: "+ newcases + "</p><p>Total Cases: +"+ cases + "</p>";
   var customPopup = "<h3>" + country + "</h3><h5>" + province + "</h5><hr><p>Date:" + cdate + "</p><hr><p>New Losses: +" + newlosses + "</p><p>Total Losses: +"  + losses + "</p><p>New Cases: "+ newcases + "</p><p>Total Cases: +"+ cases + "</p>";
   function buildChart(nl,nc,nr,l,c,r){
     var width = 500;
@@ -119,55 +116,59 @@ CovidData.forEach((covidReport) => {
     var parse = d3.timeParse("%m");
     var format = d3.timeFormat("%b");
     
-    var div = d3.create("div").attr("id","svg-div").attr("style","height:300px").attr("style","width:330px")
+    var div = d3.create("div").attr("id","svg-div").attr("style","height:330px").attr("style","width:330px")
     var svg = div.append("svg")
       .attr("width", width+margin.left+margin.right)
       .attr("height", height+margin.top+margin.bottom);
-    //var g = svg.append("g").attr("transform","translate("+[margin.left,margin.top]+")");
+    
+    var g = svg.append("g").attr("transform","translate("+[margin.left,margin.top]+")");
     
     var cvdata = [nl,nc,nr,l,c,r];
-    //var cvdata = [2,5,7,1,10,10];
-    var pie = d3.pie
-    var radius = 75;
-    var g = svg.append("g").attr("transform", "translate(" + (margin.left+margin.right) + "," + (margin.top+margin.bottom) + ")")
-              // .append("text")
-              // .text("Covid Statistics - "+ cdate)
-              // .attr("class", "title");
+    var y = d3.scaleLinear()
+    .domain([0, d3.max(cvdata, function(d) { return d; }) ])
+    .range([height,0]);
+    
+  var yAxis = d3.axisLeft()
+    .ticks(4)
+    .scale(y);
+  g.append("g").call(yAxis);
+    
+  var x = d3.scaleBand()
+    .domain(d3.range(12))
+    .range([0,width]);
+    
+  var xAxis = d3.axisBottom()
+    .scale(x)
+    .tickFormat(function(d) { return format(parse(d+1)); });
+    
+  g.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .selectAll("text")
+      .attr("text-anchor","end")
+      .attr("transform","rotate(-90)translate(-12,-15)")
+    
+  var rects = g.selectAll("rect")
+    .data(cvdata)
+    .enter()
+    .append("rect")
+    .attr("y",height)
+    .attr("height",0)
+    .attr("width", x.bandwidth()-2 )
+    .attr("x", function(d,i) { return x(i); })
+    .attr("fill","steelblue")
+    .transition()
+    .attr("height", function(d) { return height-y(d); })
+    .attr("y", function(d) { return y(d); })
+    .duration(1000);
+    
+  // var title = svg.append("text")
+  //   .style("font-size", "20px")
+  //   .text(function(d, i) { if(i==0){return "New Loss";} if(i==1){return "New Losses";}if(i==1){return "New Cases";}if(i==2){return "New Recovery";}if(i==3){return "Losses";}if(i==4){return "Cases";}if(i==5){return "Recovered";} })
+  //   .attr("x", width/2 + margin.left)
+  //   .attr("y", 30)
 
-    var color = d3.scaleOrdinal(['black','lightblue','lightgreen','red','blue','green']);
-
-// Generate the pie
-    var pie = d3.pie();
-// Generate the arcs
-    var arc = d3.arc()
-            .innerRadius(50)
-            .outerRadius(radius);
-//Generate groups
-  var arcs = g.selectAll("arc")
-            .data(pie(cvdata))
-            .enter()
-            .append("g")
-            .attr("class", "arc")
-//Draw arc paths
-   arcs.append("path")
-    .attr("fill", function(d, i) {
-        return color(i);
-    })
-    .attr("d", arc);
-
-  var label = d3.arc().outerRadius(radius).innerRadius(radius - 10);
-
-  arcs.append("text")
-    .attr("transform", function(d) {
-    return "translate(" + label.centroid(d) + ")"; 
-                       })
-                      .text(function(d, i) { if(i==0){return "New Loss";} if(i==1){return "New Losses";}if(i==1){return "New Cases";}if(i==2){return "New Recovery";}if(i==3){return "Losses";}if(i==4){return "Cases";}if(i==5){return "Recovered";} });
-    div.append("div").attr("class","popupdiv").attr("style","margin-top:150px;").html(customPopup);
-    // var scripttext="size(200, 200);\nbackground(100);\nsmooth();\nnoStroke();\nint diameter = 150;\nint[] angs = {30, 10, 45, 35, 60, 38, 75, 67};\nfloat lastAng = 0;\n";
-    // scripttext=scripttext+ "for (int i=0; i<angs.length; i++){\nfill(angs[i] * 3.0);\narc(width/2, height/2, diameter, diameter, lastAng, lastAng+radians(angs[i]));\nlastAng += radians(angs[i]);\n}\n"
-    // var script=div.append("script").attr("type","application/processing").text(scripttext);
-    // div.append("canvas").attr("width",200).attr("height",200).attr("id","__processing0").attr("style","image-rendering: optimizeQuality !important;")
-    //canvas width="200" height="200" tabindex="0" id="__processing0" style="image-rendering: optimizeQuality !important;"></canvas>
+    div.append("div").attr("class","popupdiv").attr("style","margin-top:200px;").html(customPopup);
     return div.node();
     
   }

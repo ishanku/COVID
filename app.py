@@ -23,6 +23,10 @@ def worldmap():
 def covidnumbers():
     return render_template("covidnumbers.html")
 
+@app.route("/usamap")
+def usamap():
+    return render_template("usamap.html")
+
 @app.route('/data_country')
 def sqldata():
     tables="country"
