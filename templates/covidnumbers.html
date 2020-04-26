@@ -20,6 +20,11 @@
    <script>
     var pymChildCN = new pym.Child();
     pym.Child({ renderCallback: buildCovidNumbers(covid19) });
+    pymChild.onMessage('navigate', onNavigateMessage);
+
+function onNavigateMessage(url) {
+    window.location.href = url;
+}
   </script>
   </body>
   </html>

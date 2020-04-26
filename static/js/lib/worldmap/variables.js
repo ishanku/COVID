@@ -8,6 +8,8 @@ var fullc19data=servername + "data_fullC19"
 var covid19 =servername + "covid19"
 var covidall =servername + "covidall"
 
+
+var CitiMarkers= L.markerClusterGroup();
 var C19NRecoveryMarkers=[]
 var C19RecoveryMarkers=[]
 var C19FatalityRateMarkers=[]
@@ -22,6 +24,7 @@ var C19LossLayer=[]
 var C19CaseLayer=[]
 var C19NLossLayer=[]
 var C19NCaseLayer=[]
+var CityLayer=[]
 var cases=+0;
 var losses=+0
 var ccount=+0

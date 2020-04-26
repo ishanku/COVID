@@ -42,6 +42,13 @@
   <script>
       var pymParent = new pym.Parent('worldmap', 'worldmap', {});
       var another = new pym.Parent('numberbar', 'covidnumbers', {});
+      document.getElementById('myLink').addEventListener('click', onLinkClick);
+
+    function onLinkClick(e) {
+    e.preventDefault();
+
+    pymParent.sendMessage('navigate', e.target.href);
+}
   </script>
    </body>
   </html>
