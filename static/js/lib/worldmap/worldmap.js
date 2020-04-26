@@ -108,7 +108,12 @@ CovidData.forEach((covidReport) => {
   var cdate=covidReport.date;
   var population=0;
 
-  var customPopup = "<h3>" + country + "</h3><h5>" + province + "</h5><hr><p>Date:" + cdate + "</p><hr><p>New Losses: +" + newlosses + "</p><p>Total Losses: +"  + losses + "</p><p>New Cases: "+ newcases + "</p><p>Total Cases: +"+ cases + "</p>";
+  var customPopup = "<h3>" + country + "</h3><h5>" + province + "</h5><hr><p>Date:" + cdate + "</p><hr><div class='row'>"
+  customPopup=customPopup+ "<div class='cols losses'>New Losses: <br>+" + newlosses + "</div><div class='cols losses'>Total Losses: <br>"  + losses + "</div></div>"; 
+  customPopup=customPopup + "<div class='row'><div class='cols activecase'>New Cases: <br>+"+ newcases + "</div><div class='cols activecase'>Total Cases: <br>";
+  customPopup=customPopup + cases + "</div></div><div class='row'><div class='cols recovered'>New Recovery: <br>"+ newrecovery + "</div><div class='cols recovered'>Total Recovery: <br>";
+  customPopup=customPopup + recovered + "</div></div>"; 
+
   function buildChart(nl,nc,nr,l,c,r){
     var width = 500;
     var height = 100;
@@ -116,7 +121,7 @@ CovidData.forEach((covidReport) => {
     var parse = d3.timeParse("%m");
     var format = d3.timeFormat("%b");
     
-    var div = d3.create("div").attr("id","svg-div").attr("style","height:330px").attr("style","width:330px")
+    var div = d3.create("div").attr("id","svg-div").attr("style","height:370px").attr("style","width:330px")
     var svg = div.append("svg")
       .attr("width", width+margin.left+margin.right)
       .attr("height", height+margin.top+margin.bottom);
@@ -129,17 +134,17 @@ CovidData.forEach((covidReport) => {
     .range([height,0]);
     
   var yAxis = d3.axisLeft()
-    .ticks(4)
+    .ticks(6)
     .scale(y);
   g.append("g").call(yAxis);
     
   var x = d3.scaleBand()
-    .domain(d3.range(12))
-    .range([0,width]);
+    .domain(d3.range(7))
+    .range([0,210]);
     
   var xAxis = d3.axisBottom()
     .scale(x)
-    .tickFormat(function(d) { return format(parse(d+1)); });
+    .tickFormat(function(d, i) { if(i==0){return "New Loss";} if(i==1){return "New Losses";}if(i==1){return "New Cases";}if(i==2){return "New Recovery";}if(i==3){return "Losses";}if(i==4){return "Cases";}if(i==5){return "Recovered";}});
     
   g.append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -154,7 +159,7 @@ CovidData.forEach((covidReport) => {
     .append("rect")
     .attr("y",height)
     .attr("height",0)
-    .attr("width", x.bandwidth()-2 )
+    .attr("width",15)
     .attr("x", function(d,i) { return x(i); })
     .attr("fill","steelblue")
     .transition()
@@ -162,11 +167,11 @@ CovidData.forEach((covidReport) => {
     .attr("y", function(d) { return y(d); })
     .duration(1000);
     
-  // var title = svg.append("text")
-  //   .style("font-size", "20px")
-  //   .text(function(d, i) { if(i==0){return "New Loss";} if(i==1){return "New Losses";}if(i==1){return "New Cases";}if(i==2){return "New Recovery";}if(i==3){return "Losses";}if(i==4){return "Cases";}if(i==5){return "Recovered";} })
-  //   .attr("x", width/2 + margin.left)
-  //   .attr("y", 30)
+  var title = svg.append("text")
+    .style("font-size", "12px")
+    .text(function(d, i) { if(i==0){return "New Loss";} if(i==1){return "New Losses";}if(i==1){return "New Cases";}if(i==2){return "New Recovery";}if(i==3){return "Losses";}if(i==4){return "Cases";}if(i==5){return "Recovered";} })
+    .attr("x", width/2 + margin.left)
+    .attr("y", 30)
 
     div.append("div").attr("class","popupdiv").attr("style","margin-top:200px;").html(customPopup);
     return div.node();

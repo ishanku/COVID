@@ -15,19 +15,24 @@ h3{
 h5{
   color:darkorange;
 }
-.arc text {
-  font: 8px sans-serif;
-  color: #fff;
-  text-anchor: middle;
-}
-.arcs text {
-  font: 8px sans-serif;
-  color: #fff;
-  text-anchor: middle;
+.activecases{
+  padding: 10px;
+  color:lightblue;
+  font-size: small;
+
 }
 
-.arc path {
-  stroke: #fff;
+.losses{
+  padding: 10px;
+  color: red;
+  font-size: small;
+}
+
+
+.recovered{
+  padding: 10px;
+  color: lightgreen;
+  font-size: small;
 }
 
 .title {
