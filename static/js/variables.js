@@ -6,15 +6,22 @@ var c19data=servername + "data_c19"
 var countrydata="static/data/country.json"
 var fullc19data=servername + "data_fullC19"
 var covid19 =servername + "covid19"
+var covidall =servername + "covidall"
 
-
+var C19NRecoveryMarkers=[]
+var C19RecoveryMarkers=[]
+var C19FatalityRateMarkers=[]
 var C19LossMarkers=[]
 var C19CaseMarkers=[]
+var C19NLossMarkers=[]
+var C19NCaseMarkers=[]
+var C19NRecoveryLayers=[]
+var C19RecoveryLayers=[]
+var C19FatalityRateLayers=[]
 var C19LossLayer=[]
 var C19CaseLayer=[]
-var latlong=[];
-var llfound=false;
-var key;
+var C19NLossLayer=[]
+var C19NCaseLayer=[]
 var cases=+0;
 var losses=+0
 var ccount=+0

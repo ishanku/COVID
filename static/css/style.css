@@ -7,6 +7,7 @@ body {
 body,
 html {
   height: 100%;
+  background-color: black;
 }
 
 #worldmap{
@@ -25,7 +26,7 @@ html {
 
   > .col,
   > [class*="col-"] {
-    padding-right: 5px;
+    padding-right: 0;
     padding-left: 0;
   }
 }

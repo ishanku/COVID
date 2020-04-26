@@ -12,6 +12,7 @@ def home():
     #sqldata()
     coviddata()
     covidall()
+    covid19()
     return render_template("index.html")
 
 @app.route("/worldmap")
@@ -35,9 +36,20 @@ def coviddata():
     data_c19=json.dumps(response, indent=4, sort_keys=True)
     return data_c19
 
+@app.route('/covidall')
+def covidall():
+    url="https://covid-19-statistics.p.rapidapi.com/reports";
+    headers = {
+    #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",
+    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    }
+    response = requests.request("GET", url, headers=headers).json()
+    #response = requests.get(url).json()
+    covidall=json.dumps(response, indent=4, sort_keys=True)
+    return covidall
 
 @app.route('/covid19')
-def covidall():
+def covid19():
     url="https://covid-19-tracking.p.rapidapi.com/v1";
     headers = {
     #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",

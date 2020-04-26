@@ -29,12 +29,11 @@
      <!-- API key -->
     <script type="text/javascript" src="static/js/config.js"></script>
     <!-- Our JavaScript -->
-    <script src="static/js/lib/processing.min.js"></script>
     <script type="text/javascript" src="static/js/variables.js"></script>
-    <script type="text/javascript" src="static/js/worldmap.js"></script>
+    <script type="text/javascript" src="static/js/logic.js"></script>
     <script>
       var pymChild = new pym.Child();
-      pym.Child({ renderCallback: renderWorld(covidall) });
+      pym.Child({ renderCallback: renderAll(c19data,countrydata,covid19) });
    </script>
   </body>
   </html>
