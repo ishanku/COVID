@@ -39,6 +39,19 @@ def worldmap():
 @app.route("/covidnumbers")
 def covidnumbers():
     return render_template("covidnumbers.html")
+  
+@app.route("/covidnumbersusa")
+def covidnumbersusa():
+    return render_template("covidnumbersusa.html")
+@app.route("/usamap")
+def usamap():
+    return render_template("usamap.html")
+@app.route("/covidnumbersga")
+def covidnumbersga():
+    return render_template("covidnumbersga.html")
+@app.route("/gamap")
+def gamap():
+    return render_template("gamap.html")
 
 @app.route("/regionalmap/<region>")
 def regionalmap(region):
