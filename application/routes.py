@@ -1,10 +1,11 @@
-from db import loadData,getData,getLatitudeLongitude
+
+from application import app,db
 import requests
 import pandas as pd
 import json
 #from application import app, db, api
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
-from flask_restplus import Resource
+#from flask_restplus import Resource
 
 @app.route('/')
 def home():
@@ -43,9 +44,7 @@ def covidnumbers():
 @app.route("/covidnumbersusa")
 def covidnumbersusa():
     return render_template("covidnumbersusa.html")
-@app.route("/usamap")
-def usamap():
-    return render_template("usamap.html")
+
 @app.route("/covidnumbersga")
 def covidnumbersga():
     return render_template("covidnumbersga.html")
