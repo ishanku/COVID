@@ -7,8 +7,10 @@ import json
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
 #from flask_restplus import Resource
 
-@app.route('/')
-def home():
+@app.route("/")
+@app.route("/index")
+@app.route("/home")
+def index():
     #sqldata()
     coviddata()
     covidall()
@@ -80,7 +82,7 @@ def usamap():
 @app.route('/data_country')
 def sqldata():
     tables="country"
-    data_country=getData(tables)
+    data_country=db.getData(tables)
     return data_country
 
 @app.route('/data_c19')
