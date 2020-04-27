@@ -148,7 +148,7 @@ def fullC19():
     for index,row in newdf.iterrows():
         try:
             iCountry=index
-            LatLon=pd.DataFrame(getLatitudeLongitude(iCountry))
+            LatLon=pd.DataFrame(db.getLatitudeLongitude(iCountry))
             tmp=pd.DataFrame({"Country":[index],"Latitude":LatLon[0],"Longitude":LatLon[1],"TotalCases":[row['TotalCases']],"TotalLosses": [row['TotalLosses']],"Date":[row['Date']],"Population":[row['Population']]})
         except KeyError:
             tmp=pd.DataFrame({"Country":[index],"Latitude":"","Longitude":"","TotalCases":[row['TotalCases']],"TotalLosses": [row['TotalLosses']],"Date":[row['Date']],"Population":[row['Population']]})

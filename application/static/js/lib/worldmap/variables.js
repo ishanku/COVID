@@ -9,7 +9,6 @@ var covid19 =servername + "covid19"
 var covidall =servername + "covidall"
 
 
-var CitiMarkers= L.markerClusterGroup();
 var C19NRecoveryMarkers=[]
 var C19RecoveryMarkers=[]
 var C19FatalityRateMarkers=[]

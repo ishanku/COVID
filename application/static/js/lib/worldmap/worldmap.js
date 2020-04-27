@@ -110,16 +110,16 @@ CovidData.forEach((covidReport) => {
 
   // CitiMarkers.addLayer(L.marker([clatitude, clongitude])
   //       .bindPopup(cname));
-  // }
+   }
   var citicustomPopup = "<h3>" + country + "</h3><h5>" + province + "</h5><hr><div class='row'>"
   customPopup=customPopup+ "<div class='cols losses'>New Losses: <br>+" + newlosses + "</div><div class='cols losses'>Total Losses: <br>"  + losses + "</div></div>"; 
   customPopup=customPopup + "<div class='row'><div class='cols activecases'>New Cases: <br>+"+ newcases + "</div><div class='cols activecases'>Total Cases: <br>";
   customPopup=customPopup + cases + "</div></div><div class='row'><div class='cols recovered'>New Recovery: <br>+"+ newrecovery + "</div><div class='cols recovered'>Total Recovery: <br>";
   customPopup=customPopup + recovered + "</div></div>"; 
 
-  CitiMarkers.push(
-    L.marker([clatitude, clongitude]));
-  }
+  // CitiMarkers.push(
+  //   L.marker([clatitude, clongitude]));
+  // }
   var customPopup = "<h3>" + country + "</h3><h5>" + province + "</h5><hr><div class='row'>"
   customPopup=customPopup+ "<div class='cols losses'>New Losses: <br>+" + newlosses + "</div><div class='cols losses'>Total Losses: <br>"  + losses + "</div></div>"; 
   customPopup=customPopup + "<div class='row'><div class='cols activecases'>New Cases: <br>+"+ newcases + "</div><div class='cols activecases'>Total Cases: <br>";
