@@ -1,5 +1,5 @@
 var covidall =servername + "covidall"
-var oilprices_url= ""
+var oilprices_url= "/static/data/forex_covid.csv"
 
 
 var C19CaseMarkers=[]
