@@ -15,6 +15,7 @@ scipy = "*"
 flask-wtf = "*"
 python-dotenv = "*"
 flask-restplus = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
