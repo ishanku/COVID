@@ -9,6 +9,7 @@ body {
 body,
 html {
   height: 900px;
+  background-color: black;
 }
 #map {
   margin-top: 50px;
