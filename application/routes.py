@@ -51,9 +51,14 @@ def forexmap():
 def covidnumbersusa():
     return render_template("covidnumbersusa.html")
 
+@app.route("/usamap")
+def usamap():
+    return render_template("usamap.html")
+
 @app.route("/covidnumbersga")
 def covidnumbersga():
     return render_template("covidnumbersga.html")
+
 @app.route("/gamap")
 def gamap():
     return render_template("gamap.html")
@@ -78,10 +83,6 @@ def regional(region):
     else:
         data=json.dumps(response, indent=4, sort_keys=True)
     return data
-
-@app.route("/usamap")
-def usamap():
-    return render_template("usamap.html")
 
 @app.route('/data_country')
 def sqldata():
