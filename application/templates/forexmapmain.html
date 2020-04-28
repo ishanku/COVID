@@ -13,7 +13,7 @@
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="static/css/fstyle.css">
 <body>
   {% include "includes/nav.html" %}
   <!-- The div that holds our map -->
@@ -26,7 +26,7 @@
   </div>
   <script type="text/javascript" src="static/js/lib/etc/pym.v1.js"></script>
   <script>
-      var pymParent = new pym.Parent('map', 'oilpricesmap', {});
+      var pymParent = new pym.Parent('map', 'forexmap', {});
       var another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
   </script>
   {% include "includes/myfooter.html" %}

@@ -1,5 +1,4 @@
-var covidall =servername + "covidall"
-var oilprices_url= "/static/data/forex_covid.csv"
+var forexdata = "http://localhost:5000/static/data/forex_covid.json"
 
 
 var C19CaseMarkers=[]
@@ -7,8 +6,6 @@ var C19CaseMarkers=[]
 var C19CaseLayer=[]
 
 var cases=+0;
-var losses=+0
-var ccount=+0
 //Adding tile layer to the map
 
 var light = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
