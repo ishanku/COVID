@@ -38,12 +38,18 @@ def getData(tables):
     conn.close()
 
     #filepath=os.path.join(path +'/static/','generated',table+'.json')
-
-    df=pd.DataFrame()
-    for r in results:
-        tmp_df=pd.DataFrame({"name":[r[0]],"country":[r[1]],"latitude":[r[2]],"longitude":[r[3]]})
-        df=df.append(tmp_df)
-    data=df.reset_index().drop(columns=['index']).to_json(orient="records")
+    if (tables=="country"):
+        df=pd.DataFrame()
+        for r in results:
+            tmp_df=pd.DataFrame({"name":[r[0]],"country":[r[1]],"latitude":[r[2]],"longitude":[r[3]]})
+            df=df.append(tmp_df)
+        data=df.reset_index().drop(columns=['index']).to_json(orient="records")
+    if (tables=="forex"):
+        df=pd.DataFrame()
+        for r in results:
+            tmp_df=pd.DataFrame({"date":[r[0]],"country":[r[1]],"latitude":[r[2]],"longitude":[r[3]],"currency":[r[4]],"rate":[r[5]]})
+            df=df.append(tmp_df)
+        data=df.reset_index().drop(columns=['index']).to_json(orient="records")
 
     return data
 

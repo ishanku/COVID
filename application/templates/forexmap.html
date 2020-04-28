@@ -31,10 +31,11 @@
     <!-- Our JavaScript -->
     <script src="/static/js/lib/etc/processing.min.js"></script>
     <script type="text/javascript" src="/static/js/lib/forex/variables.js"></script>
+    <script type="text/javascript" src="/static/js/lib/forex/builders.js"></script>
     <script type="text/javascript" src="/static/js/lib/forex/forexmap.js"></script>
     <script>
       var pymChild = new pym.Child();
-      pym.Child({ renderCallback: renderForex(forexdata) });
+      pym.Child({ renderCallback: renderForex(covid19,forexdata) });
    </script>
   </body>
   </html>

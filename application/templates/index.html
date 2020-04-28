@@ -13,22 +13,63 @@
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 <body>
   {% include "includes/nav.html" %}
   <!-- The div that holds our map -->
+  <font color="black">
+  Child 1 :     {{child1}}<br>
+  LeftBar : {{leftbar}}
+  </font>
   <div class="container-fluid">
   <div class="row nogutters">
   <div id="numberbar" class="col-2 justify-content-start bar-1"></div>
-  <div id="worldmap" class="col-8 justify-content-center bar-2"></div>
+  <div id="middlebar" class="col-8 justify-content-center bar-2"></div>
   <div class="col-2 justify-content-end bar-3">Right</div>
   </div>
   </div>
-  <script type="text/javascript" src="static/js/lib/etc/pym.v1.js"></script>
+  <script type="text/javascript" src="/static/js/lib/etc/pym.v1.js"></script>
+  {%if child1 %}
+    {%if child2 %}
+    <script>
+        var pymParent = new pym.Parent('middlebar', '{{child1}}/{{child2}}', {});
+        var another = new pym.Parent('numberbar', '{{leftbar}}', {});
+    </script>
+  {%else%}
+    <script>
+      var pymParent = new pym.Parent('middlebar', '{{child1}}', {});
+      var another = new pym.Parent('numberbar', '{{leftbar}}', {});
+   </script>
+    {%endif%}
+  {% else %}    
   <script>
-      var pymParent = new pym.Parent('worldmap', 'worldmap', {});
-      var another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
-  </script>
+    var content="worldmap"
+    var pymParent = new pym.Parent('middlebar', content, {});
+    var another = new pym.Parent('numberbar', 'covidnumbers', {});
+</script>
+  {% endif %}
   {% include "includes/myfooter.html" %}
    </body>
   </html>
+  <!--<script>
+    d3.select('#mainnav1').on('click', function(){
+      //var content= d3.select(this).property('href');
+      alert("Hi");
+      pymcatch="child"
+      content="route/worldmap"
+      pymParent = new pym.Parent('middlebar', content, {});
+      another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
+    });
+    d3.select('#mainnav2').on('click', function(){
+      pymcatch="child"
+      content="route/regionalmap/ww";
+      pymParent = new pym.Parent('middlebar', content, {});
+      another = new pym.Parent('numberbar', 'covidnumbersusa', {trackscroll: true});
+    });
+    d3.select('#mainnav3').on('click', function(){
+      pymcatch="child"
+      content="route/usamap";
+      pymParent = new pym.Parent('middlebar', content, {});
+      another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
+    });
+  </script>-->

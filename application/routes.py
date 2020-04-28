@@ -43,6 +43,11 @@ def worldmap():
 def covidnumbers():
     return render_template("covidnumbers.html")
 
+@app.route("/childindex")
+def childindex():
+    return render_template("childindex.html")
+
+
 @app.route("/forexmap")
 def forexmap():
     return render_template("forexmap.html")
@@ -51,14 +56,9 @@ def forexmap():
 def covidnumbersusa():
     return render_template("covidnumbersusa.html")
 
-@app.route("/usamap")
-def usamap():
-    return render_template("usamap.html")
-
 @app.route("/covidnumbersga")
 def covidnumbersga():
     return render_template("covidnumbersga.html")
-
 @app.route("/gamap")
 def gamap():
     return render_template("gamap.html")
@@ -67,6 +67,26 @@ def gamap():
 def regionalmap(region):
     regional(region)
     return render_template("regionalmap.html",region=region)
+
+#/route/regionalmap/ww
+@app.route('/route/<route1>')
+def masterroute(route1):
+    html_render="index.html"
+    leftbar="/covidnumbers"
+    child1="/"+route1
+    if (route1 == 'usamap'):
+        leftbar="/covidnumbersusa"
+    return render_template(html_render,child1=child1,leftbar=leftbar)
+    
+@app.route('/sroute/<route1>/<route2>')
+def mastersubroute(route1,route2):
+    html_render="index.html"
+    leftbar="/covidnumbers"
+    child1="/"+route1
+    child2=route2
+    if (route1 == 'usamap'):
+        leftbar="/covidnumbersusa"
+    return render_template(html_render,child1=child1,child2=child2,leftbar=leftbar)
 
 @app.route('/regional/<region>')
 def regional(region):
@@ -84,11 +104,21 @@ def regional(region):
         data=json.dumps(response, indent=4, sort_keys=True)
     return data
 
+@app.route("/usamap")
+def usamap():
+    return render_template("usamap.html")
+
 @app.route('/data_country')
 def sqldata():
     tables="country"
     data_country=db.getData(tables)
     return data_country
+
+@app.route('/data_forex')
+def forexdata():
+    tables="forex"
+    data=db.getData(tables)
+    return data
 
 @app.route('/data_c19')
 def coviddata():
@@ -121,6 +151,12 @@ def covid19():
     #response = requests.get(url).json()
     covid19=json.dumps(response, indent=4, sort_keys=True)
     return covid19
+
+@app.route('/covid19LL')
+def covid19LL():
+    covid19data=covid19()
+    countrydata=sqldata()
+    return countrydata
 
 @app.route('/data_fullC19')
 def fullC19():
@@ -176,6 +212,6 @@ def sqlname():
 @app.route('/loaddata')
 def loadNewData():
     #LoadResult=loadData('static/data/covid.csv',"c19","csv")
-    LoadResult=loadData('static/data/covidfulldata.csv',"fullc19","csv")
+    LoadResult=db.loadData('static/data/covidfulldata.csv',"fullc19","csv")
     return "DataLoaded"
 

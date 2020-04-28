@@ -1,10 +1,11 @@
-var forexdata = "http://localhost:5000/static/data/forex_covid.json"
-
+var forexdata = "/data_forex"
+var covid19 = "/covid19"
+var countrydata="http://localhost:5000/static/data/country.json"
+var covidall = "/covidall"
 
 var C19CaseMarkers=[]
-
 var C19CaseLayer=[]
-
+var latlong;
 var cases=+0;
 //Adding tile layer to the map
 
