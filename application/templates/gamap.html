@@ -1,0 +1,64 @@
+Welcome to GA Map!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Our Little Covid Helper</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   
+   <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/wstyle.css">
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
+        <a class="navbar-brand" href="index.html">Global View</a>
+
+     <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav">
+           <li class="nav-item active"><a class="nav-link" href="http://localhost:5000">Home</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 1</a></li>
+           <li class="nav-item"><a class="nav-link" href="/usamap">USA DATA</a></li>
+           <li class="nav-item"><a class="nav-link" href="/gamap">Georgia DATA</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">COVID 4</a></li>
+           <li class="nav-item"><a class="nav-link" href="index.html">CDC Guidelines</a></li>
+         </ul>
+     </div>
+     </div>
+   </nav>
+ <!--<script src="static/js/lib/pym.js" type="text/javascript"></script>-->
+ <div class="container-fluid">
+ <div class="row nogutters">
+ <div id="numbersga" class="col-2 justify-content-start bar-1"></div>
+ <div id="map" class="col-8 justify-content-center bar-2"></div>
+  <div class="col-2 justify-content-end bar-3">Right</div>
+  </div>
+  </div>
+    <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <!-- Leaflet Timeline CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.timeline@1.2.1/dist/leaflet.timeline.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+    <script type="text/javascript" src="static/js/lib/etc/choropleth.js"></script> 
+     <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script src="static/js/lib/etc/processing.min.js"></script>
+    <script type="text/javascript" src="static/js/lib/gamap/variablesga.js"></script>
+	<script type="text/javascript" src="static/js/lib/gamap/gamap.js"></script>
+	<script type="text/javascript" src="static/js/lib/etc/pym.v1.js"></script>
+    <script>
+      var pymParent = new pym.Parent('numbersga', 'covidnumbersga', {}); 
+	  var pymChild = new pym.Child();
+      pym.Child({ renderCallback: renderWorld(covidall) });
+	  
+   </script>
+  </body>
+  </html>
