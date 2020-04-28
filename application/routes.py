@@ -42,6 +42,10 @@ def worldmap():
 @app.route("/covidnumbers")
 def covidnumbers():
     return render_template("covidnumbers.html")
+
+@app.route("/forexmap")
+def forexmap():
+    return render_template("forexmap.html")
   
 @app.route("/covidnumbersusa")
 def covidnumbersusa():
