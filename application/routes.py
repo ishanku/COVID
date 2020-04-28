@@ -43,10 +43,9 @@ def worldmap():
 def covidnumbers():
     return render_template("covidnumbers.html")
 
-@app.route("/childindex")
-def childindex():
-    return render_template("childindex.html")
-
+@app.route("/oilprices")
+def oilprices():
+    return render_template("oilprices.html")
 
 @app.route("/forexmap")
 def forexmap():
@@ -59,6 +58,7 @@ def covidnumbersusa():
 @app.route("/covidnumbersga")
 def covidnumbersga():
     return render_template("covidnumbersga.html")
+
 @app.route("/gamap")
 def gamap():
     return render_template("gamap.html")
@@ -76,6 +76,8 @@ def masterroute(route1):
     child1="/"+route1
     if (route1 == 'usamap'):
         leftbar="/covidnumbersusa"
+    if (route1 == 'gamap'):
+        leftbar="/covidnumbersga"
     return render_template(html_render,child1=child1,leftbar=leftbar)
     
 @app.route('/sroute/<route1>/<route2>')
@@ -85,7 +87,7 @@ def mastersubroute(route1,route2):
     child1="/"+route1
     child2=route2
     if (route1 == 'usamap'):
-        leftbar="/covidnumbersusa"
+        leftbar="/covidnumbersusa" 
     return render_template(html_render,child1=child1,child2=child2,leftbar=leftbar)
 
 @app.route('/regional/<region>')

@@ -33,7 +33,7 @@ function buildChart(country,customPopup,ForexData){
   //   .domain(d3.extent(smurfData, d => d.date))
   //   .range([0, width]);
 
-  v
+  
     //var cvdata = [nl,nc,nr,l,c,r];
     var x = d3.scaleLinear()
     .domain([0, d3.max(cdate, function(d) { return d; }) ])

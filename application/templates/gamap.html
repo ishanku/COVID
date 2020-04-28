@@ -32,10 +32,8 @@
 	<script type="text/javascript" src="/static/js/lib/gamap/gamap.js"></script>
 	<script type="text/javascript" src="/static/js/lib/etc/pym.v1.js"></script>
     <script>
-      var pymParent = new pym.Parent('numbersga', 'covidnumbersga', {}); 
-	  var pymChild = new pym.Child();
+      var pymChild = new pym.Child();
       pym.Child({ renderCallback: renderWorld(covidall) });
-	  
    </script>
   </body>
   </html>

@@ -87,7 +87,7 @@ d3.json(covid19,(response)=>{
 
   var country,latitude,longitude;
    console.log(ForexData)
-   console.log(CovidData)
+   //console.log(CovidData)
   
   var i=0;
   ForexData.forEach((data) => {
@@ -98,8 +98,7 @@ d3.json(covid19,(response)=>{
   }
     //console.log(data)
     if (CCountry == data.country){
-      
-      console.log(country+","+CCountry);
+    
       country=data.country;
       latitude=data.latitude;
       longitude=data.longitude;
@@ -109,12 +108,6 @@ d3.json(covid19,(response)=>{
     }
     else{
    
-
-      
-    
-      // country=data.name;
-      // var latitude=data.latitude;
-      // var longitude=data.longitude;
     if(country){
 
       CovidData.forEach((element) => {
@@ -145,7 +138,9 @@ d3.json(covid19,(response)=>{
       //fillColor: ChooseColor(cases,population,"case"),
       weight: 1,
       radius: 5
-    }).bindPopup(buildChart(country,customPopup,ForexData)));
+    })
+    .bindPopup(customPopup));
+    //.bindPopup(buildChart(country,customPopup,ForexData)));
   }
   });
   }
