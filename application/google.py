@@ -1,4 +1,3 @@
-from config import googlekey
 import requests
 
 class googleapi():

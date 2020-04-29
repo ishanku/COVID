@@ -16,6 +16,7 @@ flask-wtf = "*"
 python-dotenv = "*"
 flask-restplus = "*"
 gunicorn = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
