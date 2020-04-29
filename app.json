@@ -1,10 +1,16 @@
 {
-    "environments": {
-      "test": {
-        "scripts": {
-          "test-setup": "gem install rubocop",
-          "test": "rubocop ."
-        }
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": "5"
+  }
+  "environments": {
+    "test": {
+      "env": {
+        "SECRET_TOKEN": "test-secret"
       }
     }
   }
+}
