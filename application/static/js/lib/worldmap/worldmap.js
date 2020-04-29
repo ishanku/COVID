@@ -66,7 +66,7 @@ function ChooseColor(value,population,key){
   }
   return color;
 }
-
+console.log(covidall)
 function renderWorld(covidall){
 d3.json(covidall, function(response) {
 

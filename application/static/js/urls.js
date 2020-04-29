@@ -1,5 +1,6 @@
+var servername="https://ourcovidhelper.herokuapp.com"
 var c19data="/data_c19"
 var countrydata="static/data/country.json"
 var fullc19data="/data_fullC19"
 var covid19 ="/covid19"
-var covidall ="/covidall"
+var covidall =servername + "/covidall"
