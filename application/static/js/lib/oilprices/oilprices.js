@@ -1,5 +1,5 @@
 // Chart Params
-var url="http://localhost:5000/static/data/final_oil_cases.csv"
+var url="static/data/final_oil_cases.csv"
 var svgWidth = 960;
 var svgHeight = 500;
 

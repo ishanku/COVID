@@ -1,4 +1,3 @@
-var servername="http://localhost:5000/"
 var c19data="/data_c19"
 var countrydata="static/data/country.json"
 var fullc19data="/data_fullC19"

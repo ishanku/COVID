@@ -1,12 +1,8 @@
 var body = d3.select('body')
 var maindiv=body.append('div').attr('class','container-fluid')
-
 function buildCovidNumbers(covid19){
-console.log("Calling Function"+covid19)
 d3.json(covid19,function(data){
-  console.log(data);
-
-  
+  console.log(data);  
   data.forEach((element) => {
     var country=element['Country_text'];
     var activecases=element['Active Cases_text']
