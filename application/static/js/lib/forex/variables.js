@@ -1,7 +1,4 @@
-var forexdata = "/data_forex"
-var covid19 = "/covid19"
-var countrydata="http://localhost:5000/static/data/country.json"
-var covidall = "/covidall"
+var countrydata=servername + "/static/data/country.json"
 
 var C19CaseMarkers=[]
 var C19CaseLayer=[]

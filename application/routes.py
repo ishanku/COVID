@@ -25,12 +25,9 @@ def covidtotal():
     url="https://covid-19-statistics.p.rapidapi.com/reports/total"
     
     headers = {
-    #'x-rapidapi-host': "covid19-data.p.rapidapi.com",
-    #'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
     'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
-    #response = requests.get(url).json()
     if response == None or response == '':
       data="{}"
       print('I got a null or empty string value for data in a file')
@@ -72,7 +69,6 @@ def regionalmap(region):
     regional(region)
     return render_template("regionalmap.html",region=region)
 
-#/route/regionalmap/ww
 @app.route('/route/<route1>')
 def masterroute(route1):
     html_render="index.html"
@@ -99,10 +95,9 @@ def regional(region):
     url="https://covid19-data.p.rapidapi.com/geojson-"+region;
     headers = {
     'x-rapidapi-host': "covid19-data.p.rapidapi.com",
-    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
-    #response = requests.get(url).json()
     if response == None or response == '':
       data="{}"
       print('I got a null or empty string value for data in a file')
@@ -137,11 +132,9 @@ def coviddata():
 def covidall():
     url="https://covid-19-statistics.p.rapidapi.com/reports";
     headers = {
-    #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",
     'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
-    #response = requests.get(url).json()
     covidall=json.dumps(response, indent=4, sort_keys=True)
     return covidall
 
@@ -150,11 +143,9 @@ def covidall():
 def covid19():
     url="https://covid-19-tracking.p.rapidapi.com/v1";
     headers = {
-    #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",
-    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
-    #response = requests.get(url).json()
     covid19=json.dumps(response, indent=4, sort_keys=True)
     return covid19
 
@@ -166,9 +157,6 @@ def covid19LL():
 
 @app.route('/data_fullC19')
 def fullC19():
-    # url="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
-    # response = requests.get(url).json()
-    # data_c19=json.dumps(response, indent=4, sort_keys=True)
 
     url="https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
     response = requests.get(url).json()
@@ -203,7 +191,6 @@ def fullC19():
             tmp=pd.DataFrame({"Country":[index],"Latitude":"","Longitude":"","TotalCases":[row['TotalCases']],"TotalLosses": [row['TotalLosses']],"Date":[row['Date']],"Population":[row['Population']]})
 
     alldf=alldf.append(tmp)
-    #alldf=alldf.loc[alldf.Latitude != ''].set_index("Date")
     data_fullC19=alldf.reset_index().drop(columns=['index']).to_json(orient="records")
     return data_fullC19
 
@@ -217,7 +204,6 @@ def sqlname():
 
 @app.route('/loaddata')
 def loadNewData():
-    #LoadResult=loadData('static/data/covid.csv',"c19","csv")
     LoadResult=db.loadData('static/data/covidfulldata.csv',"fullc19","csv")
     return "DataLoaded"
 
