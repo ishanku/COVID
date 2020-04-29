@@ -207,3 +207,8 @@ def loadNewData():
     LoadResult=db.loadData('static/data/covidfulldata.csv',"fullc19","csv")
     return "DataLoaded"
 
+@app.route("/whatismyip")
+def whatismyip():
+    ip = requests.get('https://api.ipify.org').text
+    return ip
+
