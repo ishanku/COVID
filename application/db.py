@@ -6,18 +6,15 @@ import psycopg2
 from flask import jsonify,request,json
 #from werkzeug.utils import secure_filename
 import pandas as pd
+import os
 from sqlalchemy.types import Integer, Text, String, DateTime
 import numpy as np
-
-
-
-
 #################################################
 # Database Setup
 #################################################
 # Create database connection
-user="gtuser"
-password="rpython2020"
+user = os.environ['pgdbuser']
+password=os.environ['pgdbpass']
 host="104.197.208.53"
 port="5432"
 database="covid"

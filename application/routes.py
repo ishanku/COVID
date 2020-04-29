@@ -3,9 +3,12 @@ from application import app,db
 import requests
 import pandas as pd
 import json
+import os
 #from application import app, db, api
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
 #from flask_restplus import Resource
+
+rapidapikey = os.environ['rapidapikey']
 
 @app.route("/")
 @app.route("/index")
@@ -23,7 +26,8 @@ def covidtotal():
     
     headers = {
     #'x-rapidapi-host': "covid19-data.p.rapidapi.com",
-    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    #'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
     #response = requests.get(url).json()
@@ -134,7 +138,7 @@ def covidall():
     url="https://covid-19-statistics.p.rapidapi.com/reports";
     headers = {
     #'x-rapidapi-host': "covid19-monitor-pro.p.rapidapi.com",
-    'x-rapidapi-key': "69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c"
+    'x-rapidapi-key': rapidapikey
     }
     response = requests.request("GET", url, headers=headers).json()
     #response = requests.get(url).json()
