@@ -34,8 +34,9 @@ enginec = sqlalchemy.create_engine(
         password=password,
         database=database,
         query={
-            'unix_sock': '/cloudsql/{}/.s.PGSQL.5432'.format(
-                cloud_sql_connection_name)
+            #'unix_sock': '/cloudsql/{}/.s.PGSQL.5432'.format(
+            #   cloud_sql_connection_name)
+            'unix_sock': '/tmp/glossy-ally-267614:us-central1:gtecth/.s.PGSQL.5432'
         }        
     ),
     pool_size=5,
@@ -54,7 +55,7 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with engine.connect() as conn:
+    with enginec.connect() as conn:
         cur = conn.cursor()
         cur.execute(query)
         results = cur.fetchall()
