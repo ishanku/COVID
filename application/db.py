@@ -55,7 +55,7 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with enginec.connect() as conn:
+    with engine.connect() as conn:
         cur = conn.cursor()
         cur.execute(query)
         results = cur.fetchall()
