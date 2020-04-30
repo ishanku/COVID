@@ -52,17 +52,17 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with enginec.connect() as conn:
-        cur = conn.cursor()
-        cur.execute(query)
-        results = cur.fetchall()
-        conn.close()
+    # with engine.connect() as conn:
+    #     cur = conn.cursor()
+    #     cur.execute(query)
+    #     results = cur.fetchall()
+    #     conn.close()
         
-    # conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
-    # cur = conn.cursor()
-    # cur.execute(query)
-    # results = cur.fetchall()
-    # conn.close()
+    conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
+    cur = conn.cursor()
+    cur.execute(query)
+    results = cur.fetchall()
+    conn.close()
 
     #filepath=os.path.join(path +'/static/','generated',table+'.json')
     if (tables=="country"):
