@@ -2,3 +2,5 @@
 /.ipynb_checkpoints/
 /.flaskenv
 /application/export.py
+/connection/
+/connection/*
