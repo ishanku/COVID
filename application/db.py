@@ -50,12 +50,18 @@ def getData(tables):
     # Base = automap_base()
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
-
-    conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
-    cur = conn.cursor()
-    cur.execute(f"""SELECT * FROM {tables}""")
-    results = cur.fetchall()
-    conn.close()
+    query=(f"""SELECT * FROM {tables}""")
+    with enginec.connect() as conn:
+        cur = conn.cursor()
+        cur.execute(query)
+        results = cur.fetchall()
+        conn.close()
+        
+    # conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
+    # cur = conn.cursor()
+    # cur.execute(query)
+    # results = cur.fetchall()
+    # conn.close()
 
     #filepath=os.path.join(path +'/static/','generated',table+'.json')
     if (tables=="country"):
@@ -110,23 +116,6 @@ def fullC19df():
        })
     fulldata=pd.merge(df, cdf, how="left", on=["country", "country"])
     data_fullC19=fulldata.to_json(orient="records")
-    # countrygroup=df.groupby("countriesAndTerritories")
-    # TotalCases=countrygroup['cases'].sum()
-    # TotalLosses=countrygroup['deaths'].sum()
-    # Date = countrygroup["dateRep"].first()
-    # Population=countrygroup["popData2018"].first()
-    # newdf=pd.DataFrame({"TotalCases":TotalCases,"TotalLosses": TotalLosses,"Date":Date,"Population":Population})
-    # alldf=pd.DataFrame()
-    # for index,row in newdf.iterrows():
-    #     try:
-    #         iCountry=index
-    #         LatLon=pd.DataFrame(getLatitudeLongitude(iCountry))
-    #         tmp=pd.DataFrame({"Country":[index],"Latitude":LatLon[0],"Longitude":LatLon[1],"TotalCases":[row['TotalCases']],"TotalLosses": [row['TotalLosses']],"Date":[row['Date']],"Population":[row['Population']]})
-    #     except KeyError:
-    #         tmp=pd.DataFrame({"Country":[index],"Latitude":"","Longitude":"","TotalCases":[row['TotalCases']],"TotalLosses": [row['TotalLosses']],"Date":[row['Date']],"Population":[row['Population']]})
-    #
-    # alldf=alldf.append(tmp)
-    #alldf=alldf.loc[alldf.Latitude != ''].set_index("Date")
     return data_fullC19
 
 def loadData(data,table,format):
