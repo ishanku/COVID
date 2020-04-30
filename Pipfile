@@ -17,6 +17,8 @@ python-dotenv = "*"
 flask-restplus = "*"
 gunicorn = "*"
 requests = "*"
+boto3 = "*"
+google-cloud-storage = "*"
 
 [requires]
 python_version = "3.7"

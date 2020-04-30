@@ -1,3 +1,4 @@
-__pycache__/
-.ipynb_checkpoints/
-.flaskenv
+/__pycache__/
+/.ipynb_checkpoints/
+/.flaskenv
+/application/export.py
