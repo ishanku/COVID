@@ -1,5 +1,4 @@
 import requests
-
 class googleapi():
     def getLatLon(Address):
         loc =[]

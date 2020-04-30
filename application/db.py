@@ -30,14 +30,10 @@ enginec = sqlalchemy.create_engine(
         username=user,
         password=password,
         database=database,
-        # query={
-        #     'unix_sock': '/cloudsql/{}/.s.PGSQL.5432'.format(
-        #         cloud_sql_connection_name)
-        # }
         query={
-            'unix_sock': os.environ['QUOTAGUARDSTATIC_URL']
-        }
-        
+            'unix_sock': '/cloudsql/{}/.s.PGSQL.5432'.format(
+                cloud_sql_connection_name)
+        }        
     ),
     pool_size=5,
     max_overflow=2,
