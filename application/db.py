@@ -19,8 +19,10 @@ host=os.environ['pgdbhost']
 #host='localhost'
 port="5432"
 database="covid"
+#engine = create_engine('postgresql+psycopg2://DATABASE_USER:PASSWORD@localhost:5432/')
 connection_string = f"{user}:{password}@{host}:{port}/{database}"
-engine = create_engine(f'postgresql://{connection_string}')
+#engine = create_engine(f'postgresql://{connection_string}')
+engine = create_engine(f'postgresql+psycopg2://{connection_string}')
 cloud_sql_connection_name=os.environ['mydomainurl']+os.environ["CLOUD_SQL_CONNECTION_NAME"]
 
 enginec = sqlalchemy.create_engine(
@@ -52,17 +54,17 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    # with engine.connect() as conn:
-    #     cur = conn.cursor()
-    #     cur.execute(query)
-    #     results = cur.fetchall()
-    #     conn.close()
+    with engine.connect() as conn:
+        cur = conn.cursor()
+        cur.execute(query)
+        results = cur.fetchall()
+        conn.close()
         
-    conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
-    cur = conn.cursor()
-    cur.execute(query)
-    results = cur.fetchall()
-    conn.close()
+    # conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
+    # cur = conn.cursor()
+    # cur.execute(query)
+    # results = cur.fetchall()
+    # conn.close()
 
     #filepath=os.path.join(path +'/static/','generated',table+'.json')
     if (tables=="country"):
