@@ -57,8 +57,8 @@ def getData(tables):
     query=(f"""SELECT * FROM {tables}""")
     with enginec.connect() as conn:
         #cur = conn.cursor()
-        conn.execute(query)
-        results = conn.fetchall()
+        results= conn.execute(query).fetchall()
+        #results = conn.fetchall()
         conn.close()
         
     # conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
