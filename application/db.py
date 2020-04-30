@@ -16,7 +16,7 @@ import numpy as np
 user = os.environ['pgdbuser']
 password=os.environ['pgdbpass']
 host=os.environ['pgdbhost']
-host='localhost'
+#host='localhost'
 port="5432"
 database="covid"
 connection_string = f"{user}:{password}@{host}:{port}/{database}"
