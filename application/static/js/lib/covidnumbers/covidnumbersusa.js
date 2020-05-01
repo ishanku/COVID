@@ -5,22 +5,21 @@ var maindiv=body.append('div').attr('class','container-fluid')
 function renderUSA(covidall, covid19){
   buildCovidNumbers(covid19);
   d3.json(covidall, function(response) {
-    
+
     let CovidData=response.data;
-	console.log(CovidData);
-    
+
       buildLayers(CovidData);
       });
-  
+
    }
 
 function buildLayers(CovidData){
-console.log(CovidData);
+
 CovidData.forEach((covidReport) => {
-   	
+
   var region=covidReport.region
   var province=region.province;
-  var allcities=covidReport.region.cities;    
+  var allcities=covidReport.region.cities;
   cases =  parseInt(covidReport.confirmed);
   losses = parseInt(covidReport.deaths);
   var newcases= parseInt(covidReport.confirmed_diff);
@@ -34,7 +33,7 @@ CovidData.forEach((covidReport) => {
   var longitude= region.long;
   var cdate=covidReport.date;
   var population=0;
-  
+
   if(ISO == 'USA'){
 	  var rowdiv=maindiv.append("div")
     .attr("class","wrapper mrow")
@@ -71,7 +70,7 @@ CovidData.forEach((covidReport) => {
 
     var trowdiv=rowdiv.append("div")
           .attr("class","row")
-    
+
     trowdiv.append("div")
     .attr("class","cols activecases")
     .html("Total Cases <br>"+cases)
@@ -89,7 +88,7 @@ function buildCovidNumbers(covid19){
 d3.json(covid19,function(data){
   console.log(data);
 
-  
+
   data.forEach((element) => {
     var country=element['Country_text'];
     var activecases=element['Active Cases_text']
@@ -135,7 +134,7 @@ d3.json(covid19,function(data){
 
     var trowdiv=rowdiv.append("div")
           .attr("class","row")
-    
+
     trowdiv.append("div")
     .attr("class","cols activecases")
     .html("Total Cases <br>"+ totalcases)
@@ -145,6 +144,6 @@ d3.json(covid19,function(data){
     .html("Recovered Cases<br>"+recoveredcases)
 	}
      });
-  
+
 });
 }

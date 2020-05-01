@@ -7,8 +7,8 @@ import os
 #from application import app, db, api
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
 #from flask_restplus import Resource
-
-rapidapikey = os.environ['RAPIDAPIKEY']
+from application import settings
+rapidapikey = settings.RAPIDAPIKEY
 
 @app.route("/")
 @app.route("/index")
@@ -23,7 +23,7 @@ def index():
 @app.route("/covidtotal")
 def covidtotal():
     url="https://covid-19-statistics.p.rapidapi.com/reports/total"
-    
+
     headers = {
     'x-rapidapi-key': rapidapikey
     }
@@ -34,7 +34,7 @@ def covidtotal():
     else:
         data=json.dumps(response, indent=4, sort_keys=True)
     return data
-  
+
 
 @app.route("/worldmap")
 def worldmap():
@@ -55,7 +55,7 @@ def oilprices():
 @app.route("/forexmap")
 def forexmap():
     return render_template("forexmap.html")
-  
+
 @app.route("/covidnumbersusa")
 def covidnumbersusa():
     return render_template("covidnumbersusa.html")
@@ -83,7 +83,7 @@ def masterroute(route1):
     if (route1 == 'gamap'):
         leftbar="/covidnumbersga"
     return render_template(html_render,child1=child1,leftbar=leftbar)
-    
+
 @app.route('/sroute/<route1>/<route2>')
 def mastersubroute(route1,route2):
     html_render="index.html"
@@ -91,7 +91,7 @@ def mastersubroute(route1,route2):
     child1="/"+route1
     child2=route2
     if (route1 == 'usamap'):
-        leftbar="/covidnumbersusa" 
+        leftbar="/covidnumbersusa"
     return render_template(html_render,child1=child1,child2=child2,leftbar=leftbar)
 
 @app.route('/regional/<region>')
@@ -215,4 +215,3 @@ def loadNewData():
 def whatismyip():
     ip = requests.get('https://api.ipify.org').text
     return ip
-

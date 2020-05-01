@@ -7,24 +7,11 @@
   <title>Our Little Covid Helper</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-   
-   <!-- Leaflet CSS -->
+ <!-- Leaflet CSS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-   <script src="/static/js/lib/etc/seamless/build/seamless.parent.js"></script>
-   <script type="text/javascript">
-    window.onload = function() {
-      // Turns the iframe into a seamless iframe.
-      window.seamless(document.getElementById('leftiframe'), {
-        loading: 'I am loading!!!!',
-        spinner: '/static/images/giphy.gif'
-      })
-      window.seamless(document.getElementById('rightiframe'), {
-        loading: 'I am loading!!!!',
-        spinner: '/static/images/giphy.gif'
-      })
-    };
-  </script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
    <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 <body>
@@ -47,45 +34,18 @@
     <script>
         var pymParent = new pym.Parent('middlebar', '{{child1}}/{{child2}}', {});
         d3.select("#leftiframe").attr('src','{{leftbar}}');
-        //var another = new pym.Parent('numberbar', '{{leftbar}}', {});
+        // var another = new pym.Parent('numberbar', '{{leftbar}}', {});
     </script>
   {%else%}
     <script>
       var pymParent = new pym.Parent('middlebar', '{{child1}}', {});
       d3.select("#leftiframe").attr('src','{{leftbar}}');
-      //var another = new pym.Parent('numberbar', '{{leftbar}}', {});
    </script>
     {%endif%}
-  {% else %}    
+  {% else %}
   <script>
     var content="worldmap"
     var pymParent = new pym.Parent('middlebar', content, {});
     d3.select("#leftiframe").attr('src','covidnumbers');
-    //var another = new pym.Parent('numberbar', 'covidnumbers', {});
 </script>
-  {% endif %}
-  {% include "includes/myfooter.html" %}
-   </body>
-  </html>
-  <!--<script>
-    d3.select('#mainnav1').on('click', function(){
-      //var content= d3.select(this).property('href');
-      alert("Hi");
-      pymcatch="child"
-      content="route/worldmap"
-      pymParent = new pym.Parent('middlebar', content, {});
-      another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
-    });
-    d3.select('#mainnav2').on('click', function(){
-      pymcatch="child"
-      content="route/regionalmap/ww";
-      pymParent = new pym.Parent('middlebar', content, {});
-      another = new pym.Parent('numberbar', 'covidnumbersusa', {trackscroll: true});
-    });
-    d3.select('#mainnav3').on('click', function(){
-      pymcatch="child"
-      content="route/usamap";
-      pymParent = new pym.Parent('middlebar', content, {});
-      another = new pym.Parent('numberbar', 'covidnumbers', {trackscroll: true});
-    });
-  </script>-->
+{%endif%}

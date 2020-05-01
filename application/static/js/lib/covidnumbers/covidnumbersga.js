@@ -7,13 +7,12 @@ function sortNumber(a, b){
 function renderUSA(covidall, covid19){
   //buildCovidNumbers(covid19);
   d3.json(covidall, function(response) {
-    
+
     let CovidData=response.data;
-	console.log(CovidData);
-    
+
       buildLayers(CovidData);
       });
-  
+
    }
 
 function buildLayers(CovidData){
@@ -21,7 +20,7 @@ console.log(CovidData);
 CovidData.forEach((covidReport) => {
   var region=covidReport.region
   var province=region.province;
-  
+
   cases =  parseInt(covidReport.confirmed);
   losses = parseInt(covidReport.deaths);
   var newcases= parseInt(covidReport.confirmed_diff);
@@ -37,11 +36,11 @@ CovidData.forEach((covidReport) => {
   var population=0;
   if(province == 'Georgia'){
   var allcities=covidReport.region.cities;
-  console.log("allcitieslength" + allcities.length);  
-  
+  console.log("allcitieslength" + allcities.length);
+
 
   for (let city =0; city < allcities.length; city++){
-	  
+
 	  var rowdiv=maindiv.append("div")
     .attr("class","wrapper mrow")
 
@@ -77,7 +76,7 @@ CovidData.forEach((covidReport) => {
 
     var trowdiv=rowdiv.append("div")
           .attr("class","row")
-		 
+
   }
    }
 });
@@ -89,7 +88,7 @@ function buildCovidNumbers(covid19){
 d3.json(covid19,function(data){
   console.log(data);
 
-  
+
   data.forEach((element) => {
     var country=element['Country_text'];
     var activecases=element['Active Cases_text']
@@ -135,7 +134,7 @@ d3.json(covid19,function(data){
 
     var trowdiv=rowdiv.append("div")
           .attr("class","row")
-    
+
     trowdiv.append("div")
     .attr("class","cols activecases")
     .html("Total Cases <br>"+ totalcases)
@@ -145,6 +144,6 @@ d3.json(covid19,function(data){
     .html("Recovered Cases<br>"+recoveredcases)
 	}
      });
-  
+
 });
 }

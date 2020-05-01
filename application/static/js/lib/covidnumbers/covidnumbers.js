@@ -1,8 +1,7 @@
 var body = d3.select('body')
 var maindiv=body.append('div').attr('class','container-fluid')
 function buildCovidNumbers(covid19){
-d3.json(covid19,function(data){
-  console.log(data);  
+d3.json(covid19,function(data){ 
   data.forEach((element) => {
     var country=element['Country_text'];
     var activecases=element['Active Cases_text']
@@ -48,7 +47,7 @@ d3.json(covid19,function(data){
 
     var trowdiv=rowdiv.append("div")
           .attr("class","row")
-    
+
     trowdiv.append("div")
     .attr("class","cols activecases")
     .html("Total Cases <br>"+ totalcases)

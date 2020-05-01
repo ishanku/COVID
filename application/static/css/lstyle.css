@@ -8,6 +8,11 @@ html {
   height: 900px;
   background-color: black;
   color: white;
+  overflow: scroll;
+  white-space: wrap;
+}
+html {
+height: auto !important;
 }
 .mrow{
 padding: 5px;

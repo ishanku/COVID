@@ -9,13 +9,17 @@ import pandas as pd
 import os
 from sqlalchemy.types import Integer, Text, String, DateTime
 import numpy as np
+from application import settings
 #################################################
 # Database Setup
 #################################################
 # Create database connection
-user = os.environ['DBPGDBUSER']
-password=os.environ['DBPGDBPASS']
-host=os.environ['DBPGDBHOST']
+# user = os.environ['DBPGDBUSER']
+# password=os.environ['DBPGDBPASS']
+# host=os.environ['DBPGDBHOST']
+user=settings.DBPGDBUSER
+password=settings.DBPGDBPASS
+host=settings.DBPGDBHOST
 #host='localhost'
 port="5432"
 database="covid"
@@ -37,7 +41,7 @@ enginec = sqlalchemy.create_engine(
             #'unix_sock': '/cloudsql/{}/.s.PGSQL.5432'.format(
             #   cloud_sql_connection_name)
             'unix_sock': '/tmp/glossy-ally-267614:us-central1:gtecth/.s.PGSQL.5432'
-        }        
+        }
     ),
     pool_size=5,
     max_overflow=2,
@@ -55,12 +59,12 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with enginec.connect() as conn:
+    with engine.connect() as conn:
         #cur = conn.cursor()
         results= conn.execute(query).fetchall()
         #results = conn.fetchall()
         conn.close()
-        
+
     # conn = psycopg2.connect(host=host, port = port, database=database, user=user, password=password)
     # cur = conn.cursor()
     # cur.execute(query)
