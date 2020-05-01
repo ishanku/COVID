@@ -11,17 +11,17 @@
    
    <!-- Leaflet CSS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-   <script src="/static/js/lib/etc/seamless/build/seamless.parent.min.js"></script>
+   <script src="/static/js/lib/etc/seamless/build/seamless.parent.js"></script>
    <script type="text/javascript">
     window.onload = function() {
       // Turns the iframe into a seamless iframe.
       window.seamless(document.getElementById('leftiframe'), {
         loading: 'I am loading!!!!',
-        //spinner: 'http://www.travistidwell.com/seamless.js/src/loader.gif'
+        spinner: '/static/images/giphy.gif'
       })
       window.seamless(document.getElementById('rightiframe'), {
         loading: 'I am loading!!!!',
-        //spinner: 'http://www.travistidwell.com/seamless.js/src/loader.gif'
+        spinner: '/static/images/giphy.gif'
       })
     };
   </script>
