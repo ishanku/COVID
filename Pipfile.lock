@@ -497,13 +497,6 @@
             ],
             "version": "==1.0.1"
         },
-        "wget": {
-            "hashes": [
-                "sha256:35e630eca2aa50ce998b9b1a127bb26b30dfee573702782aa982f875e3f16061"
-            ],
-            "index": "pypi",
-            "version": "==3.2"
-        },
         "wtforms": {
             "hashes": [
                 "sha256:6ff8635f4caeed9f38641d48cfe019d0d3896f41910ab04494143fc027866e1b",
