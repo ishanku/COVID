@@ -13,9 +13,12 @@ import numpy as np
 # Database Setup
 #################################################
 # Create database connection
-user = os.environ['DBPGDBUSER']
-password=os.environ['DBPGDBPASS']
-host=os.environ['DBPGDBHOST']
+# user = os.environ['DBPGDBUSER']
+# password=os.environ['DBPGDBPASS']
+# host=os.environ['DBPGDBHOST']
+user="gtuser"
+password="rpython2020"
+host="104.197.208.53"
 #host='localhost'
 port="5432"
 database="covid"
@@ -23,7 +26,7 @@ database="covid"
 connection_string = f"{user}:{password}@{host}:{port}/{database}"
 #engine = create_engine(f'postgresql://{connection_string}')
 engine = create_engine(f'postgresql+psycopg2://{connection_string}')
-cloud_sql_connection_name=os.environ['mydomainurl']+os.environ["CLOUD_SQL_CONNECTION_NAME"]
+#cloud_sql_connection_name=os.environ['mydomainurl']+os.environ["CLOUD_SQL_CONNECTION_NAME"]
 
 enginec = sqlalchemy.create_engine(
     # Equivalent URL:
@@ -55,7 +58,7 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with enginec.connect() as conn:
+    with engine.connect() as conn:
         #cur = conn.cursor()
         results= conn.execute(query).fetchall()
         #results = conn.fetchall()

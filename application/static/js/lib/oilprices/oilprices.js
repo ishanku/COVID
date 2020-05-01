@@ -1,6 +1,6 @@
 // Chart Params
 var url=servername + "/static/data/final_oil_cases.csv"
-var svgWidth = 960;
+var svgWidth = 900;
 var svgHeight = 500;
 
 var margin = { top: 20, right: 40, bottom: 60, left: 50 };

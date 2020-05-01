@@ -8,7 +8,8 @@ import os
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
 #from flask_restplus import Resource
 
-rapidapikey = os.environ['RAPIDAPIKEY']
+#rapidapikey = os.environ['RAPIDAPIKEY']
+rapidapikey='69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c'
 
 @app.route("/")
 @app.route("/index")
@@ -43,6 +44,10 @@ def worldmap():
 @app.route("/covidnumbers")
 def covidnumbers():
     return render_template("covidnumbers.html")
+
+@app.route("/rightbar")
+def rightbar():
+    return render_template("rightbar.html")
 
 @app.route("/oilprices")
 def oilprices():

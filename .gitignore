@@ -8,3 +8,6 @@
 /bin/*
 /application/Config.cfg
 .flaskenv
+/application/db.py
+/application/routes.py
+/application/static/js/urls.js

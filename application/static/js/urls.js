@@ -1,4 +1,5 @@
 var servername="https://ourcovidhelper.herokuapp.com"
+var servername="http://localhost:5000"
 var c19data=servername + "/data_c19"
 var countrydata=servername + "static/data/country.json"
 var fullc19data=servername + "/data_fullC19"

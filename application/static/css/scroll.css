@@ -1,0 +1,21 @@
+body,
+html {
+  height: 100%;
+  background-color: black;
+  color:red;
+  padding: 0;
+  margin: 0;
+  
+}
+marquee{
+    font-size: small;
+    font-size: x-small;
+    text-align: justify;
+    padding: 10px 0;
+}
+.myscroll{
+    margin-left: 10px;
+    font-size: x-small;
+    text-align: justify;
+    padding: 10px 0;
+}
