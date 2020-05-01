@@ -6,7 +6,6 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.config.from_envvar('APP_SETTINGS')
 
 #db = MongoEngine()
 #db.init_app(app)
