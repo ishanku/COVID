@@ -6,3 +6,5 @@
 /connection/*
 /Proxy*/*
 /bin/*
+/application/Config.cfg
+.flaskenv
