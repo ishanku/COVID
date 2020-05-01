@@ -13,12 +13,9 @@ import numpy as np
 # Database Setup
 #################################################
 # Create database connection
-# user = os.environ['DBPGDBUSER']
-# password=os.environ['DBPGDBPASS']
-# host=os.environ['DBPGDBHOST']
-user="gtuser"
-password="rpython2020"
-host="104.197.208.53"
+user = os.environ['DBPGDBUSER']
+password=os.environ['DBPGDBPASS']
+host=os.environ['DBPGDBHOST']
 #host='localhost'
 port="5432"
 database="covid"
@@ -58,7 +55,7 @@ def getData(tables):
     # Base.prepare(engine, reflect=True)
     # session = Session(engine)
     query=(f"""SELECT * FROM {tables}""")
-    with engine.connect() as conn:
+    with enginec.connect() as conn:
         #cur = conn.cursor()
         results= conn.execute(query).fetchall()
         #results = conn.fetchall()

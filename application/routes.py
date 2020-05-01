@@ -8,8 +8,7 @@ import os
 from flask import render_template, request, json, jsonify, Response, redirect, flash, url_for, session
 #from flask_restplus import Resource
 
-#rapidapikey = os.environ['RAPIDAPIKEY']
-rapidapikey='69a2a479b7msheb974da9ba512eep14ac07jsn1360d4b1636c'
+rapidapikey = os.environ['RAPIDAPIKEY']
 
 @app.route("/")
 @app.route("/index")
