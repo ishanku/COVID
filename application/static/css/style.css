@@ -60,7 +60,7 @@ html {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px;
   display: block;
 }
 
@@ -75,13 +75,13 @@ html {
 
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: lightred;
   color: black;
 }
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: #4CAF50;
+  background-color: grey;
   color: white;
 }
 }
