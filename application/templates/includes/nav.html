@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
+<nav class="navbar navbar-expand-lg navbar-dark topnav" style="background-color: #000000;">
     <a class="navbar-brand" href="{{ url_for('index') }}">Global View</a>
 
  <div class="collapse navbar-collapse" id="navbarNav">
@@ -12,5 +12,18 @@
        <li class="nav-item"><a class="nav-link" id="mainnav6" href="/">CDC Guidelines</a></li>
      </ul>
  </div>
+ <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+     <i class="fa fa-bars"></i>
+ </a>
  </div>
 </nav>
+<script>
+function myFunction() {
+  var x = document.getElementById("navbarNav");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
