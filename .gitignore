@@ -10,5 +10,3 @@
 .flaskenv
 .env
 /.env
-
-/application/static/js/urls.js
